@@ -18,7 +18,6 @@ export default function Home() {
     gradientTo: '#141624'     // Pink-500
   };
 
-  const [shadowActive, setShadowActive] = useState(false);
   const [subtitleActive, setSubtitleActive] = useState(false);
 
   // Configurable delays
@@ -26,12 +25,9 @@ export default function Home() {
   const shadowPopDelay = 0; // seconds after last letter falls in
 
   useEffect(() => {
-    // Wait for the last letter's animation to finish, then trigger shadow
-    const timeout = setTimeout(() => setShadowActive(true), (title.length - 1) * fallInDelay * 1000 + 1000 + shadowPopDelay * 1000);
     // Trigger subtitle animation after half the main title's fall-in duration
     const subtitleTimeout = setTimeout(() => setSubtitleActive(true), ((title.length - 1) * fallInDelay * 1000 + 1000) / 2);
     return () => {
-      clearTimeout(timeout);
       clearTimeout(subtitleTimeout);
     };
   }, []);
@@ -57,9 +53,9 @@ export default function Home() {
         {title.split('').map((char, index) => (
           <span
             key={index}
-            className={`inline-block animate-fall-in${shadowActive ? ' shadow-pop-now' : ''} ${char === ' ' ? 'w-4 sm:w-8' : ''}`}
+            className={`inline-block${char === ' ' ? ' w-4 sm:w-8' : ''}`}
             style={{
-              animationDelay: `${index * fallInDelay}s`, // Only fall-in is staggered
+              animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
               animationFillMode: 'both'
             }}
           >
@@ -67,15 +63,21 @@ export default function Home() {
           </span>
         ))}
       </h1>
-      <h2
-        className={`mt-1 text-2xl font-semibold text-center tracking-widest${subtitleActive ? ' subtitle-fade-in' : ''}`}
-        style={{
-          color: 'var(--text-color)',
-          opacity: subtitleActive ? 0.85 : 0,
-          transition: 'opacity 0.2s linear'
-        }}
-      >
-        {subtitle}
+      <h2 className="mt-1 text-2xl font-semibold text-center tracking-widest" style={{ color: 'var(--text-color)', opacity: subtitleActive ? 0.85 : 0, transition: 'opacity 0.2s linear' }}>
+        {subtitle.split('').map((char, index) => (
+          <span
+            key={index}
+            className="inline-block"
+            style={subtitleActive ? {
+              animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
+              animationFillMode: 'both',
+              display: char === ' ' ? 'inline-block' : undefined,
+              minWidth: char === ' ' ? '0.5em' : undefined
+            } : { display: char === ' ' ? 'inline-block' : undefined, minWidth: char === ' ' ? '0.5em' : undefined }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
       </h2>
       <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
         <div className="flex-1">
@@ -192,49 +194,14 @@ export default function Home() {
             text-shadow: none;
           }
         }
-        @keyframes subtitle-fade-in {
-          0% {
-            opacity: 0;
-            transform: translateX(-100vw);
-            text-shadow: none;
-          }
-          30% {
-            opacity: 1;
-            transform: translateX(-5px);
-            text-shadow:
-              0px 0px 0px var(--shadow-color),
-              0px 0px 0px var(--shadow-color2),
-              0px 0px 0px rgb(0,0,0);
-          }
-          60% {
-            opacity: 1;
-            transform: translateX(0);
-
-          }
-          80% {
-            opacity: 1;
-            transform: translateX(0);
-              text-shadow:
-              1px -1px 0px var(--shadow-color),
-              2px -2px 0px var(--shadow-color),
-              3px -3px 0px var(--shadow-color2),
-              4px -4px 0px var(--shadow-color2),
-              5px -5px 0px rgb(0,0,0);}
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-            text-shadow: none;
-          }
-        }
         .animate-fall-in {
           animation: fall-in .5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
         .shadow-pop-now {
           animation: shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards !important;
-          animation-delay: 0s !important;
         }
         .subtitle-fade-in {
-          animation: subtitle-fade-in 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: none;
         }
             `}</style>
     </main>
