@@ -3,28 +3,21 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
+import { colors } from "@/config/colors";
 
 export default function Home() {
   const title = "FORMULA SLUG";
   const subtitle = "NEVER HAS THERE BEEN A FASTER SLUG";
-  
-  // Color configuration - change these to update the entire theme
-  const colors = {
-    shadowColor1: '#49b3e6',        // Shadow color
-    shadowColor2: '#f1ea2d',        // Shadow color (for compatibility)
-    textColor: 'rgb(255, 255, 255)',    // Text color
-    gradientFrom: '#141624',  // Blue-500
-    gradientVia: '#141624',   // Purple-500
-    gradientTo: '#141624'     // Pink-500
-  };
 
   const [subtitleActive, setSubtitleActive] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
 
   // Configurable delays
   const fallInDelay = 0.02; // seconds per letter
-  const shadowPopDelay = 0; // seconds after last letter falls in
+  const shadowPopDelay = 0; // seconds after letter falls in
 
   useEffect(() => {
+    setTitleVisible(true);
     // Trigger subtitle animation after half the main title's fall-in duration
     const subtitleTimeout = setTimeout(() => setSubtitleActive(true), ((title.length - 1) * fallInDelay * 1000 + 1000) / 2);
     return () => {
@@ -44,19 +37,47 @@ export default function Home() {
         '--gradient-to': colors.gradientTo
       } as React.CSSProperties}
     >
-      <div className="absolute inset-0 -z-10 w-full h-full" style={{
-        background: `linear-gradient(to bottom right, var(--gradient-from), var(--gradient-via), var(--gradient-to))`
-      }}>
+      <div className="absolute inset-0 -z-10 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            zIndex: -2,
+          }}
+        >
+          <source src="/videos/FSDynamicWallpaper.mp4" type="video/mp4" />
+        </video>
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: `linear-gradient(to bottom right, var(--gradient-from), var(--gradient-via), var(--gradient-to))`,
+            opacity: 0.7,
+            zIndex: -1
+          }}
+        />
       </div>
       <Navbar />
-      <h1 className="w-full text-4xl sm:text-7xl lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words" style={{ color: 'var(--text-color)' }}>
+      <h1
+        className="w-full text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
+        style={{
+          color: 'var(--text-color)',
+          opacity: titleVisible ? 1 : 0,
+          transition: 'opacity 0.1s linear'
+        }}
+      >
         {title.split('').map((char, index) => (
           <span
             key={index}
-            className={`inline-block${char === ' ' ? ' w-4 sm:w-8' : ''}`}
+            className={char === ' ' ? 'inline-block w-4 sm:w-8' : ''}
             style={{
+              display: char === ' ' ? 'inline-block' : 'inline',
               animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
-              animationFillMode: 'both'
+              animationFillMode: 'both',
+              minWidth: char === ' ' ? '0.25em' : undefined,
+              letterSpacing: '0.03em'
             }}
           >
             {char === ' ' ? '\u00A0' : char}
@@ -67,13 +88,13 @@ export default function Home() {
         {subtitle.split('').map((char, index) => (
           <span
             key={index}
-            className="inline-block"
+            className={char === ' ' ? 'inline-block' : ''}
             style={subtitleActive ? {
+              display: char === ' ' ? 'inline-block' : 'inline',
               animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
               animationFillMode: 'both',
-              display: char === ' ' ? 'inline-block' : undefined,
               minWidth: char === ' ' ? '0.5em' : undefined
-            } : { display: char === ' ' ? 'inline-block' : undefined, minWidth: char === ' ' ? '0.5em' : undefined }}
+            } : { display: char === ' ' ? 'inline-block' : 'inline', minWidth: char === ' ' ? '0.5em' : undefined }}
           >
             {char === ' ' ? '\u00A0' : char}
           </span>
@@ -91,19 +112,10 @@ export default function Home() {
             Read More
           </button>
         </div>
-        <div className="flex-1 flex justify-end">
-          <Image
-            src="/car.png"
-            alt="Formula Slug Car"
-            width={480}
-            height={320}
-            className="rounded-lg shadow-lg object-contain"
-            style={{ background: '#222', maxWidth: '100%', height: 'auto' }}
-          />
-        </div>
+        
       </div>
-      <div className="flex w-screen h-64 mt-20 z-0" style={{ marginTop: 'calc(5rem + 4rem + 4rem)' }}>
-        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: '#2d3748' }}>
+      <div className="flex w-screen h-64 mt-20 z-0" style={{ marginTop: 'calc(100vh - 35rem)' }}>
+        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: 'rgba(45, 55, 72, 0.8)' }}>
           <h3 className="text-3xl font-bold mb-4 text-white">Mechanical</h3>
           <Image
         src="/mechanical.png"
@@ -114,7 +126,7 @@ export default function Home() {
         style={{ background: '#222', borderRadius: '0.5rem' }}
           />
         </div>
-        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: '#f6ad55' }}>
+        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: 'rgba(246, 173, 85, 0.8)' }}>
           <h3 className="text-3xl font-bold mb-4 text-white">Electrical</h3>
           <Image
         src="/electrical.png"
@@ -176,7 +188,7 @@ export default function Home() {
           0% {
             text-shadow: none;
           }
-          70% {
+          60% {
             text-shadow:
               1px -1px 0px var(--shadow-color),
               1.5px -1.5px 0px var(--shadow-color),

@@ -4,6 +4,7 @@ import path from "path";
 import exifr from "exifr";
 import AutoScrollOnIdle from "./AutoScrollOnIdle";
 import Navbar from "@/components/Navbar";
+import { colors } from "@/config/colors";
 
 export default async function PhotosPage() {
   // Read the /public/photos directory at build time (server-side only)
@@ -47,15 +48,25 @@ export default async function PhotosPage() {
 
   return (
     <AutoScrollOnIdle>
-      <main className="min-h-screen bg-black relative">
+      <main className="min-h-screen relative" style={{ backgroundColor: colors.background.primary }}>
         <Navbar />
-        <div className="absolute top-2 left-2 z-10 text-xs text-gray-300 bg-black bg-opacity-60 px-2 py-1 rounded pointer-events-none select-none">
-          *wait 10 seconds to start slideshow
-        </div>
-        <h1 className="text-4xl sm:text-6xl font-bold text-center text-white mb-8 px-4 pt-8">Photo Gallery</h1>
+        <h1 
+          className="text-4xl sm:text-6xl font-bold text-center mb-8 px-4 pt-8"
+          style={{ 
+            background: `linear-gradient(to right, ${colors.primary}, ${colors.accent})`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            color: colors.textColor }}
+        >
+          Photo Gallery
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0">
           {photoData.map((photo, idx) => (
-            <div key={idx} className="w-full aspect-[4/3] bg-gray-900 overflow-hidden flex items-center justify-center">
+            <div 
+              key={idx} 
+              className="w-full aspect-[4/3] overflow-hidden flex items-center justify-center"
+              style={{ backgroundColor: colors.background.secondary }}
+            >
               <Image
                 src={photo.src}
                 alt={photo.alt}
@@ -67,7 +78,12 @@ export default async function PhotosPage() {
             </div>
           ))}
           {photoData.length === 0 && (
-            <div className="col-span-full text-center text-gray-400">No photos found in <code>/public/photos</code>.</div>
+            <div 
+              className="col-span-full text-center"
+              style={{ color: colors.gray[400] }}
+            >
+              No photos found in <code>/public/photos</code>.
+            </div>
           )}
         </div>
       </main>
