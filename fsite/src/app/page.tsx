@@ -100,42 +100,59 @@ export default function Home() {
           </span>
         ))}
       </h2>
-      <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
-        <div className="flex-1">
-          <p className="text-lg" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
-            Formula Slug is the student-run FSAE electric team at UC Santa Cruz. Building complex high-performance race cars we push the boundaries of innovation and teamwork.
+      {/* Content below hero/video section */}
+      <div className="flex w-1/2 max-w-6xl mt-20 items-center justify-between gap-12">
+        <div className="flex-1 flex items-center">
+          <p className="text-lg w-3/4" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
+        Formula Slug is the student-run FSAE electric team at UC Santa Cruz. Building complex high-performance race cars we push the boundaries of innovation and teamwork.
           </p>
           <button
-            className="mt-6 px-6 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition-colors duration-200"
+            className="ml-6 px-6 py-2 rounded-full text-white font-semibold shadow transition-colors duration-200"
+            style={{ 
+              backgroundColor: colors.electricBlue,
+              border: `2px solid ${colors.slugYellow}`,
+            }}
             onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+            /* this is terrible */
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = colors.slugYellow;
+              e.currentTarget.style.color = colors.electricBlue;
+              e.currentTarget.style.border = `2px solid ${colors.electricBlue}`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = colors.electricBlue;
+              e.currentTarget.style.color = 'white';
+              e.currentTarget.style.border = `2px solid ${colors.slugYellow}`;
+            }}
           >
             Read More
           </button>
         </div>
         
       </div>
-      <div className="flex w-screen h-64 mt-20 z-0" style={{ marginTop: 'calc(100vh - 35rem)' }}>
-        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: 'rgba(45, 55, 72, 0.8)' }}>
-          <h3 className="text-3xl font-bold mb-4 text-white">Mechanical</h3>
-          <Image
-        src="/mechanical.png"
-        alt="Mechanical"
-        width={120}
-        height={120}
-        className="object-contain"
-        style={{ background: '#222', borderRadius: '0.5rem' }}
+      <div
+        className="flex w-screen h-64 z-0"
+        style={{ position: 'absolute', top: '100vh', left: 0 }}
+      >
+
+            {/* Bug: 
+        I cannot for the life of me fix the electrical fade in to not stutter on the first use
+        I swapped from the color.ts variable to static color
+        I swapped from css styling to tailwind
+        the last fix I think might be to compress the image
+        I swapped images and the html renders differently? What is going on
+        compressing 90% did not change the transition time*/}
+        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div
+            className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
+          <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Mechanical</h3>
         </div>
-        <div className="w-1/2 h-full flex flex-col items-center justify-center" style={{ background: 'rgba(246, 173, 85, 0.8)' }}>
-          <h3 className="text-3xl font-bold mb-4 text-white">Electrical</h3>
-          <Image
-        src="/electrical.png"
-        alt="Electrical"
-        width={120}
-        height={120}
-        className="object-contain"
-        style={{ background: '#222', borderRadius: '0.5rem' }}
+        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" style={{ backgroundImage: 'url(/photos/VicHotworkOpt.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div
+            className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
+          <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
         </div>
       </div>
       
@@ -161,7 +178,7 @@ export default function Home() {
             Join the Team
           </h3>
             <p className="text-lg" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
-            Ready to build, race, and innovate? Whether you’re an engineer, designer, or just passionate about electric vehicles, Formula Slug welcomes all UCSC students. Click the button to join our Slack and get started!
+            Ready to build, race, and innovate? Whether you’re an engineer, designer, or just a passionate creator, Formula Slug welcomes all UCSC students. Click the button to join our Slack and get started!
             </p>
             <p className="text-xs mt-2" style={{ color: 'var(--text-color)', opacity: 0.65 }}>
             This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.

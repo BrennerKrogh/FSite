@@ -1,17 +1,20 @@
 // Global color configuration for Formula Slug website
 export const colors = {
   // Primary brand colors
-  shadowColor1: '#49b3e6',        // Light blue shadow
-  shadowColor2: '#f1ea2d',        // Yellow shadow
-  textColor: 'rgb(255, 255, 255)', // White text
+  shadowColor1: '#49b3e6',        // Light blue
+  electricBlue: '#49b3e6',
+  shadowColor2: '#f1ea2d',        // Yellow bright
+  slugYellow: '#f1ea2d',
+  textColor: 'rgb(255, 255, 255)',
   
   // Background colors
+  // Unused
   gradientFrom: '#141624',        // Dark blue/gray
   gradientVia: '#141624',         // Dark blue/gray
   gradientTo: '#141624',          // Dark blue/gray
   
   // UI colors
-  primary: '#49b3e6',             // Primary blue
+  primary: '#111827',             // Primary blue
   secondary: '#f1ea2d',           // Secondary yellow
   accent: '#6366f1',              // Purple accent
   
@@ -44,13 +47,13 @@ export const colors = {
     900: '#1e3a8a'
   },
   
-  // Status colors
   success: '#10b981',
   warning: '#f59e0b',
   error: '#ef4444',
   info: '#3b82f6',
-  
-  // Background variations
+  // need to implement these colors
+  // we're using globals.css right now
+  // because I'm an idiot
   background: {
     primary: '#111827',           // Main dark background
     secondary: '#1f2937',         // Secondary dark background
