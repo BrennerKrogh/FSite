@@ -141,19 +141,28 @@ export default function Home() {
         I swapped from css styling to tailwind
         the last fix I think might be to compress the image
         I swapped images and the html renders differently? What is going on
-        compressing 90% did not change the transition time*/}
-        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div
+        compressing 90% did not change the transition time
+        
+        Need to return and add links to take mech and electrical to team page
+        -- use anchors
+        */}
+        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" 
+        style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+        <div
             className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
           <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Mechanical</h3>
         </div>
-        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" style={{ backgroundImage: 'url(/photos/VicHotworkOpt.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="flex-1 h-full flex flex-col items-center justify-center relative group"
+         style={{ backgroundImage: 'url(/photos/VicHotworkOpt.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+         >
           <div
             className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
           <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
         </div>
+        
       </div>
       
       <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
