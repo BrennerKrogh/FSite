@@ -7,7 +7,6 @@ export default function AutoScrollOnIdle({ children }: { children: React.ReactNo
   const scrollInterval = useRef<NodeJS.Timeout | null>(null);
   const direction = useRef<"down" | "up">("down");
 
-  // Reset idle timer on user activity
   const resetIdle = () => {
     setIdle(false);
     if (idleTimeout.current) clearTimeout(idleTimeout.current);
