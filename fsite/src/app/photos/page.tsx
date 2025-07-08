@@ -48,16 +48,13 @@ export default async function PhotosPage() {
 
   return (
     <AutoScrollOnIdle>
-      {/* Wrap Navbar in a fixed, full-width, high z-index container */}
-      <div className="fixed top-0 left-0 w-full z-50">
+      <main className="min-h-screen relative" style={{ backgroundColor: colors.background.primary }}>
         <Navbar />
-      </div>
-      <main className="min-h-screen relative pt-20" style={{ backgroundColor: colors.background.primary }}>
-        {/* pt-20 ensures content is not hidden behind the fixed navbar (adjust if your navbar is taller/shorter) */}
+
         <h1 
           className="text-4xl sm:text-6xl font-bold text-center mb-8 px-4 pt-8"
           style={{ 
-            background: `linear-gradient(to right, ${colors.primary}, ${colors.accent})`,
+            background: `linear-gradient(to right, ${'white'}, ${colors.titleBlue})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             color: colors.textColor }}

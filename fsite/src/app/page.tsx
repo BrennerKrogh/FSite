@@ -61,11 +61,11 @@ export default function Home() {
       </div>
       <Navbar />
       <h1
-        className="w-full text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
+        className="w-full text-4xl sm:text-5xl md:text-6xl mt-16 lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
         style={{
           color: 'var(--text-color)',
           opacity: titleVisible ? 1 : 0,
-          transition: 'opacity 0.1s linear'
+          transition: 'opacity 0.1s linear',
         }}
       >
         {title.split('').map((char, index) => (
@@ -130,6 +130,35 @@ export default function Home() {
         </div>
         
       </div>
+      <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
+        <div className="flex-1 flex flex-col items-center justify-center">
+            <button
+              className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
+              style={{
+              width: '220px',
+              height: '120px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '0'
+              }}
+              onClick={() => window.open('https://fsae.slack.com/join/signup#/domain-signup', '_blank')}
+            >
+              Join Our Slack
+            </button>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-color)' }}>
+            Join the Team
+          </h3>
+            <p className="text-lg" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
+            Ready to build, race, and innovate? Whether you’re an engineer, designer, or just a passionate creator, Formula Slug welcomes all UCSC students. Click the button to join our Slack and get started!
+            </p>
+            <p className="text-xs mt-2" style={{ color: 'var(--text-color)', opacity: 0.65 }}>
+            This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
+            </p>
+        </div>
+      </div>
       <div
         className="flex w-screen h-64 z-0"
         style={{ position: 'absolute', top: '100vh', left: 0 }}
@@ -165,35 +194,7 @@ export default function Home() {
         
       </div>
       
-      <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
-        <div className="flex-1 flex flex-col items-center justify-center">
-            <button
-              className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
-              style={{
-              width: '220px',
-              height: '120px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '0'
-              }}
-              onClick={() => window.open('https://fsae.slack.com/join/signup#/domain-signup', '_blank')}
-            >
-              Join Our Slack
-            </button>
-        </div>
-        <div className="flex-1">
-          <h3 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-color)' }}>
-            Join the Team
-          </h3>
-            <p className="text-lg" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
-            Ready to build, race, and innovate? Whether you’re an engineer, designer, or just a passionate creator, Formula Slug welcomes all UCSC students. Click the button to join our Slack and get started!
-            </p>
-            <p className="text-xs mt-2" style={{ color: 'var(--text-color)', opacity: 0.65 }}>
-            This group is open to all students consistent with state and federal law, the UC Nondiscrimination Statement and the Nondiscrimination Policy Statement for University of California Publications Regarding Student-Related Matters.
-            </p>
-        </div>
-      </div>
+      
       
       <style jsx>{`
         @keyframes fall-in {

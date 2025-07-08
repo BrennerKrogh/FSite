@@ -17,7 +17,9 @@ export const colors = {
   primary: '#111827',             // Primary blue
   secondary: '#f1ea2d',           // Secondary yellow
   accent: '#6366f1',              // Purple accent
-  
+
+  titleBlue: '#4d5d80',         // slight tint of blue for titles
+
   // Gray scale
   gray: {
     50: '#f9fafb',
