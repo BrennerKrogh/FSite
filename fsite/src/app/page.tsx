@@ -13,8 +13,8 @@ export default function Home() {
   const [titleVisible, setTitleVisible] = useState(false);
 
   // Configurable delays
-  const fallInDelay = 0.02; // seconds per letter
-  const shadowPopDelay = 0; // seconds after letter falls in
+  const fallInDelay = 0.02; 
+  const shadowPopDelay = 0; 
 
   useEffect(() => {
     setTitleVisible(true);
