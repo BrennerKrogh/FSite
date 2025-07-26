@@ -60,48 +60,50 @@ export default function Home() {
           />
         </div>
         <Navbar />
-        <h1
-          className="w-full text-4xl sm:text-5xl md:text-6xl mt-32 lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
-          style={{
-            color: 'var(--text-color)',
-            opacity: titleVisible ? 1 : 0,
-            transition: 'opacity 0.1s linear',
-          }}
-        >
-          {title.split('').map((char, index) => (
-            <span
-              key={index}
-              className={char === ' ' ? 'inline-block w-4 sm:w-8' : ''}
-              style={{
-                display: char === ' ' ? 'inline-block' : 'inline',
-                animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
-                animationFillMode: 'both',
-                minWidth: char === ' ' ? '0.25em' : undefined,
-                letterSpacing: '0.03em'
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          ))}
-        </h1>
-        <h2 className="mt-1 text-2xl font-semibold text-center tracking-widest" style={{ color: 'var(--text-color)', opacity: subtitleActive ? 0.85 : 0, transition: 'opacity 0.2s linear' }}>
-          {subtitle.split('').map((char, index) => (
-            <span
-              key={index}
-              className={char === ' ' ? 'inline-block' : ''}
-              style={subtitleActive ? {
-                display: char === ' ' ? 'inline-block' : 'inline',
-                animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
-                animationFillMode: 'both',
-                minWidth: char === ' ' ? '0.5em' : undefined
-              } : { display: char === ' ' ? 'inline-block' : 'inline', minWidth: char === ' ' ? '0.5em' : undefined }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          ))}
-        </h2>
+        <div className="w-full h-50hv">
+          <h1
+            className="w-full text-4xl sm:text-5xl md:text-6xl mt-32 lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
+            style={{
+              color: 'var(--text-color)',
+              opacity: titleVisible ? 1 : 0,
+              transition: 'opacity 0.1s linear',
+            }}
+          >
+            {title.split('').map((char, index) => (
+              <span
+                key={index}
+                className={char === ' ' ? 'inline-block w-4 sm:w-8' : ''}
+                style={{
+                  display: char === ' ' ? 'inline-block' : 'inline',
+                  animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
+                  animationFillMode: 'both',
+                  minWidth: char === ' ' ? '0.25em' : undefined,
+                  letterSpacing: '0.03em'
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h1>
+          <h2 className="mt-1 text-2xl font-semibold text-center tracking-widest" style={{ color: 'var(--text-color)', opacity: subtitleActive ? 0.85 : 0, transition: 'opacity 0.2s linear' }}>
+            {subtitle.split('').map((char, index) => (
+              <span
+                key={index}
+                className={char === ' ' ? 'inline-block' : ''}
+                style={subtitleActive ? {
+                  display: char === ' ' ? 'inline-block' : 'inline',
+                  animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
+                  animationFillMode: 'both',
+                  minWidth: char === ' ' ? '0.5em' : undefined
+                } : { display: char === ' ' ? 'inline-block' : 'inline', minWidth: char === ' ' ? '0.5em' : undefined }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </h2>
+        </div>
         {/* Content below hero/video section */}
-        <div className="flex w-1/2 max-w-6xl mt-20 items-center justify-between gap-12">
+        <div className="flex w-1/2 max-w-6xl mt-0 items-center justify-between gap-12">
           <div className="flex-1 flex items-center">
             <p className="text-lg w-3/4" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
         Formula Slug is the student-run FSAE electric team at UC Santa Cruz. Building complex high-performance race cars we push the boundaries of innovation and teamwork.
@@ -130,21 +132,22 @@ export default function Home() {
           </div>
           
         </div>
-        <div className="flex w-full max-w-6xl mt-20 items-center justify-between gap-12">
+        <div className="flex w-full max-w-6xl mt-0 mb-16 items-center justify-between gap-12">
           <div className="flex-1 flex flex-col items-center justify-center">
               <button
-                className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
-                style={{
-                width: '220px',
-                height: '120px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: '0'
-                }}
-                onClick={() => window.open('https://fsae.slack.com/join/signup#/domain-signup', '_blank')}
+          className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
+          style={{
+          width: '10vw',
+          height: '16vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '0',
+
+          }}
+          onClick={() => window.open('https://fsae.slack.com/join/signup#/domain-signup', '_blank')}
               >
-                Join Our Slack
+          Join Our Slack
               </button>
           </div>
           <div className="flex-1">
@@ -160,6 +163,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="w-fit h-fit">
       <div className="flex w-screen h-64 z-0" style={{ position: 'absolute', top: '100vh', left: 0 }}>
 
             {/* Bug: 
@@ -176,6 +180,7 @@ export default function Home() {
         <div className="flex-1 h-full flex flex-col items-center justify-center relative group" 
         style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
+        
         <div
             className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
@@ -188,6 +193,7 @@ export default function Home() {
             className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
           />
           <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
+        </div>
         </div>
         
       </div>

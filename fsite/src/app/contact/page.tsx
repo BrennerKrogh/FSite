@@ -32,12 +32,9 @@ export default function ContactPage() {
         
         <div className="max-w-4xl mx-auto">
           <h1 
-            className="text-5xl font-bold text-center mb-12"
+            className="text-4xl sm:text-6xl font-bold text-center mb-8 px-4 pt-0"
             style={{
-              background: `linear-gradient(to right, ${colors.primary}, ${colors.accent})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              color: "white"
             }}
           >
             Contact Us
@@ -79,17 +76,7 @@ export default function ContactPage() {
                     className="w-6 h-6 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: colors.primary }}
                   >
-                    <span className="text-xs">💬</span>
                   </div>
-                  <a 
-                    href="https://fsae.slack.com/join/signup#/domain-signup" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                    style={{ color: colors.primary }}
-                  >
-                    Join our Slack
-                  </a>
                 </div>
               </div>
             </div>

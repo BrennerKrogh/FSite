@@ -134,17 +134,14 @@ export default function SponsorsPage() {
 
   return (
     <main className="min-h-screen text-white" style={{ backgroundColor: colors.background.primary }}>
-      <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div className="container mx-auto p-0 sm:px-6 lg:px-8">
         <Navbar />
         
         <div className="max-w-6xl mx-auto">
           <h1 
-            className="text-5xl font-bold text-center mb-6"
+            className="text-4xl sm:text-6xl font-bold text-center mb-8 px-4 pt-8"
             style={{
-              background: `linear-gradient(to right, ${colors.primary}, ${colors.accent})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              color: "white"
             }}
           >
             Our Sponsors
