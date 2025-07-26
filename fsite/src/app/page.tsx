@@ -60,52 +60,55 @@ export default function Home() {
           />
         </div>
         <Navbar />
-        <div className="w-full h-50hv">
-          <h1
-            className="w-full text-4xl sm:text-5xl md:text-6xl mt-32 lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
-            style={{
-              color: 'var(--text-color)',
-              opacity: titleVisible ? 1 : 0,
-              transition: 'opacity 0.1s linear',
-            }}
-          >
-            {title.split('').map((char, index) => (
-              <span
-                key={index}
-                className={char === ' ' ? 'inline-block w-4 sm:w-8' : ''}
-                style={{
-                  display: char === ' ' ? 'inline-block' : 'inline',
-                  animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
-                  animationFillMode: 'both',
-                  minWidth: char === ' ' ? '0.25em' : undefined,
-                  letterSpacing: '0.03em'
-                }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h1>
-          <h2 className="mt-1 text-2xl font-semibold text-center tracking-widest" style={{ color: 'var(--text-color)', opacity: subtitleActive ? 0.85 : 0, transition: 'opacity 0.2s linear' }}>
-            {subtitle.split('').map((char, index) => (
-              <span
-                key={index}
-                className={char === ' ' ? 'inline-block' : ''}
-                style={subtitleActive ? {
-                  display: char === ' ' ? 'inline-block' : 'inline',
-                  animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
-                  animationFillMode: 'both',
-                  minWidth: char === ' ' ? '0.5em' : undefined
-                } : { display: char === ' ' ? 'inline-block' : 'inline', minWidth: char === ' ' ? '0.5em' : undefined }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h2>
-        </div>
-        {/* Content below hero/video section */}
-        <div className="flex w-1/2 max-w-6xl mt-0 items-center justify-between gap-12">
+        <h1
+          className="w-full text-4xl sm:text-5xl md:text-6xl mt-32 lg:text-9xl font-bold drop-shadow-lg flex flex-wrap justify-center mb-2 max-w-full break-words"
+          style={{
+            color: 'var(--text-color)',
+            opacity: titleVisible ? 1 : 0,
+            transition: 'opacity 0.1s linear',
+          }}
+        >
+          {title.split('').map((char, index) => (
+            <span
+              key={index}
+              className={char === ' ' ? 'inline-block w-4 sm:w-8' : ''}
+              style={{
+                display: char === ' ' ? 'inline-block' : 'inline',
+                animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * fallInDelay}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * fallInDelay) + 1.0}s`,
+                animationFillMode: 'both',
+                minWidth: char === ' ' ? '0.25em' : undefined,
+                letterSpacing: '0.03em'
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </h1>
+        <h2 className="mt-1 text-2xl font-semibold text-center tracking-widest" style={{ color: 'var(--text-color)', opacity: subtitleActive ? 0.85 : 0, transition: 'opacity 0.2s linear' }}>
+          {subtitle.split('').map((char, index) => (
+            <span
+              key={index}
+              className={char === ' ' ? 'inline-block' : ''}
+              style={subtitleActive ? {
+                display: char === ' ' ? 'inline-block' : 'inline',
+                animation: `fall-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both ${index * 0.02}s, shadow-pop 1.0s cubic-bezier(0.12, 0.25, 0.3, 0.5) forwards ${(index * 0.02) + 0.5}s`,
+                animationFillMode: 'both',
+                minWidth: char === ' ' ? '0.5em' : undefined
+              } : { display: char === ' ' ? 'inline-block' : 'inline', minWidth: char === ' ' ? '0.5em' : undefined }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </h2>
+        {/* video section */}
+        <div className="flex w-1/2 max-w-6xl mt-20 items-center justify-between gap-12">
           <div className="flex-1 flex items-center">
-            <p className="text-lg w-3/4" style={{ color: 'var(--text-color)', opacity: 0.85 }}>
+            <p className="text-lg w-3/4" style={{ 
+              color: 'var(--text-color)', 
+              fontSize: '1vw',
+
+              }}>
+                {/* I hate this */}
         Formula Slug is the student-run FSAE electric team at UC Santa Cruz. Building complex high-performance race cars we push the boundaries of innovation and teamwork.
             </p>
             <button
@@ -115,7 +118,7 @@ export default function Home() {
                 border: `2px solid ${colors.slugYellow}`,
               }}
               onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-              /* this is terrible */
+              /* this is terrible and I forgot why standard hover doesn't work :( */
               onMouseEnter={e => {
                 e.currentTarget.style.backgroundColor = colors.slugYellow;
                 e.currentTarget.style.color = colors.electricBlue;
@@ -132,7 +135,7 @@ export default function Home() {
           </div>
           
         </div>
-        <div className="flex w-full max-w-6xl mt-0 mb-16 items-center justify-between gap-12">
+        <div className="flex w-full max-w-6xl mt-10 mb-40 items-center justify-between gap-12">
           <div className="flex-1 flex flex-col items-center justify-center">
               <button
           className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
@@ -163,51 +166,85 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-fit h-fit">
-      <div className="flex w-screen h-64 z-0" style={{ position: 'absolute', top: '100vh', left: 0 }}>
+      <div className="w-screen h-full relative">
+        <div className="flex w-full h-150 z-0">
 
-            {/* Bug: 
-        I cannot for the life of me fix the electrical fade in to not stutter on the first use
-        I swapped from the color.ts variable to static color
-        I swapped from css styling to tailwind
-        the last fix I think might be to compress the image
-        I swapped images and the html renders differently? What is going on
-        compressing 90% did not change the transition time
-        
-        Need to return and add links to take mech and electrical to team page
-        -- use anchors
-        */}
-        <div className="flex-1 h-full flex flex-col items-center justify-center relative group" 
-        style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-        >
-        
-        <div
-            className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
-          />
-          <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Mechanical</h3>
-        </div>
-        <div className="flex-1 h-full flex flex-col items-center justify-center relative group"
-         style={{ backgroundImage: 'url(/photos/VicHotworkOpt.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-         >
+              {/* Bug: 
+          I cannot for the life of me fix the electrical fade in to not stutter on the first use
+          I swapped from the color.ts variable to static color
+          I swapped from css styling to tailwind
+          the last fix I think might be to compress the image
+          I swapped images and the html renders differently? What is going on
+          compressing 90% did not change the transition time
+          
+          Need to return and add links to take mech and electrical to team page
+          -- use anchors
+          */}
+          <div className="flex-1 h-full flex flex-col items-center justify-center relative group" 
+          style={{ backgroundImage: 'url(/photos/upright.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '50%' }}
+          >
           <div
-            className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
-          />
-          <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
+              className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
+            />
+            <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Mechanical</h3>
+          </div>
+          <div className="flex-1 h-full flex flex-col items-center justify-center relative group"
+          style={{ backgroundImage: 'url(/photos/VicHotworkOpt.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div
+              className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
+            />
+            <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
+          </div><div className="flex-1 h-full flex flex-col items-center justify-center relative group"
+          style={{ backgroundImage: 'url(/photos/Telvis.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div
+              className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
+            />
+            <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Software</h3>
+          </div>
+          
         </div>
-        </div>
-        
       </div>
 
 
-
-      <section className="w-full max-w-4xl mx-auto mt-32 mb-16 px-4 py-10 bg-[#181c2a] bg-opacity-90 rounded-lg shadow-lg flex flex-col items-center">
+      <section className="w-full  mx-0 mt-0 mb-16 px-4 py-10 bg-[#181c2a] bg-opacity-90  shadow-lg flex flex-col items-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-yellow-300 mb-4">About Us</h2>
-        <p className="text-lg text-gray-100 mb-4 text-center max-w-2xl">
+        <p className="text-lg text-gray-100 mb-4 text-center max-w-6xl">
           Formula Slug is UC Santa Cruz's premier student-run electric vehicle team, competing in the international Formula SAE Electric competition. Our multidisciplinary team of engineers, designers, and innovators is dedicated to building high-performance electric race cars from the ground up. We foster hands-on learning, technical excellence, and a collaborative spirit, empowering students to push the boundaries of automotive technology and sustainable transportation.
         </p>
-        <p className="text-base text-gray-300 text-center max-w-2xl">
+        <p className="text-base text-gray-300 text-center max-w-4xl">
           Whether you're passionate about mechanical design, electrical systems, software, business, or just want to be part of an ambitious and supportive community, Formula Slug welcomes all Banana Slugs ready to make an impact. Join us as we race toward the future!
         </p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-yellow-300 mt-8 mb-4">Our History</h2>
+        <div className="text-lg text-gray-100 mb-4 text-center max-w-10xl">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto mb-8 gap-8">
+            <div className="flex-1 flex items-center justify-center">
+              <div className="w-full max-w-xl aspect-video rounded-lg shadow-lg overflow-hidden">
+              <iframe
+                width="500"
+                height="300"
+                src="https://www.youtube.com/embed/WDXPrvTS7ww?si=PUu2k2RifBt-KnHJ"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="text-lg text-gray-100 text-left">
+                Founded in 2014, Formula Slug was founded on the premise of electric vehicles and renewable energy projects. This led to our first vehicle, FS-0. While it didn't go to competition, it served as the springboard for the team.
+              </p>
+            </div>
+          </div>
+          <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos praesentium at quasi cum enim expedita minus atque, accusantium, deleniti exercitationem recusandae possimus sunt excepturi! Vel nam error distinctio molestiae quae.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem consectetur enim fuga excepturi itaque placeat quas repellendus incidunt, earum suscipit exercitationem, perferendis cum. Eum sapiente rem voluptate quo ab reprehenderit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, odit perferendis! In esse suscipit maiores obcaecati consequatur iusto neque officiis vitae dolorum cum perferendis, nostrum est minus dolore laudantium necessitatibus.
+          </p>
+        </div>
       </section>
       
       
