@@ -140,8 +140,9 @@ export default function Home() {
               <button
           className="px-0 py-0 border-4 border-white bg-transparent text-white text-3xl font-bold shadow-lg transition-colors duration-200 hover:bg-white hover:text-yellow-400"
           style={{
-          width: '10vw',
-          height: '16vh',
+          width: '15',
+          height: '12vh',
+          padding: '10px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -231,6 +232,33 @@ export default function Home() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="text-lg text-gray-100 text-left">
+                Founded in 2014, Formula Slug was founded on the premise of electric vehicles and renewable energy projects. This led to our first vehicle, FS-0. While it didn't go to competition, it served as the springboard for the team.
+              </p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto mb-8 gap-8">
+
+            <div className="flex-1">
+              <p className="text-lg text-gray-100 text-left">
+                Founded in 2014, Formula Slug was founded on the premise of electric vehicles and renewable energy projects. This led to our first vehicle, FS-0. While it didn't go to competition, it served as the springboard for the team.
+              </p>
+            </div>
+            <div className="flex-1 flex items-center justify-center">
+              <div className="w-full max-w-xl aspect-video rounded-lg shadow-lg overflow-hidden">
+              <img src="https://via.placeholder.com/500x300" alt="Placeholder" />
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto mb-8 gap-8">
+            <div className="flex-1 flex items-center justify-center">
+              <div className="w-full max-w-xl aspect-video rounded-lg shadow-lg overflow-hidden">
+              <img src="https://via.placeholder.com/500x300" alt="Placeholder" />
               </div>
             </div>
             <div className="flex-1">
