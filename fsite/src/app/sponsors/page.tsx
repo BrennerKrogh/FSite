@@ -191,36 +191,19 @@ export default function SponsorsPage() {
             </p>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
-                  style={{ backgroundColor: colors.primary }}
-                >
-                  <span className="text-xl">🚗</span>
-                </div>
+
                 <h3 className="font-semibold mb-2">Innovation</h3>
                 <p className="text-sm" style={{ color: colors.gray[400] }}>
                   Support cutting-edge electric vehicle development
                 </p>
               </div>
               <div className="text-center">
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
-                  style={{ backgroundColor: colors.primary }}
-                >
-                  <span className="text-xl">🎓</span>
-                </div>
                 <h3 className="font-semibold mb-2">Education</h3>
                 <p className="text-sm" style={{ color: colors.gray[400] }}>
-                  Invest in hands-on STEM education
+                  Invest in hands-on learning through applied engineering
                 </p>
               </div>
               <div className="text-center">
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
-                  style={{ backgroundColor: colors.primary }}
-                >
-                  <span className="text-xl">🏆</span>
-                </div>
                 <h3 className="font-semibold mb-2">Competition</h3>
                 <p className="text-sm" style={{ color: colors.gray[400] }}>
                   Help us compete at the highest level
@@ -239,8 +222,8 @@ export default function SponsorsPage() {
                 href="mailto:formulaslug@ucsc.edu"
                 className="px-8 py-3 rounded-md font-semibold border-2 transition-colors duration-200 hover:opacity-90"
                 style={{ 
-                  borderColor: colors.primary, 
-                  color: colors.primary,
+                  borderColor: 'white', 
+                  color: 'white',
                   backgroundColor: 'transparent'
                 }}
               >

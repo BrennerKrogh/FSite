@@ -40,6 +40,7 @@ export default function Home() {
     >
       <div style={{ height: '100vh', width: '100%' }} className="relative flex flex-col items-center justify-between">
         <div className="absolute inset-0 -z-10 w-full h-full">
+          {/* Video not working on firefox, can't track down */}
           <video
             autoPlay
             loop
@@ -197,14 +198,12 @@ export default function Home() {
             />
             <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Electrical</h3>
           </div><div className="flex-1 h-full flex flex-col items-center justify-center relative group"
-          style={{ backgroundImage: 'url(/photos/Telvis.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-          >
+          style={{ backgroundImage: 'url(/photos/Telvis.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div
               className="absolute inset-0 transition-opacity duration-300 opacity-60 group-hover:opacity-0 bg-[#111827]"
             />
             <h3 className="text-3xl font-bold mb-4 text-white relative z-10">Software</h3>
           </div>
-          
         </div>
       </div>
 

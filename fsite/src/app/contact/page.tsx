@@ -29,7 +29,6 @@ export default function ContactPage() {
     <main className="min-h-screen text-white" style={{ backgroundColor: colors.background.primary }}>
       <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <Navbar />
-        
         <div className="max-w-4xl mx-auto">
           <h1 
             className="text-4xl sm:text-6xl font-bold text-center mb-8 px-4 pt-0"
@@ -56,7 +55,6 @@ export default function ContactPage() {
                     className="w-6 h-6 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: colors.primary }}
                   >
-                    <span className="text-xs">📧</span>
                   </div>
                   <span>formulaslug@ucsc.edu</span>
                 </div>
@@ -66,10 +64,10 @@ export default function ContactPage() {
                     className="w-6 h-6 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: colors.primary }}
                   >
-                    <span className="text-xs">📍</span>
                   </div>
                   <span>UC Santa Cruz, Santa Cruz, CA</span>
                 </div>
+
                 
                 <div className="flex items-center space-x-3">
                   <div 
@@ -77,6 +75,7 @@ export default function ContactPage() {
                     style={{ backgroundColor: colors.primary }}
                   >
                   </div>
+                  <span>shipping address</span>
                 </div>
               </div>
             </div>
